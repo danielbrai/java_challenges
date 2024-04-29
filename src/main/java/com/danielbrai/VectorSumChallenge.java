@@ -18,18 +18,16 @@ public class VectorSumChallenge {
 
             HashMap<Integer, Integer> map = new HashMap<>();
 
-            for (int j : input) {
-                map.put(j, target - j);
+            for (int i = 0; i < input.length; i++) {
+                map.put(input[i], target-input[i]);
             }
 
-            for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
-                Integer key = entry.getKey();
-                Integer value = entry.getValue();
-                if (key + value == target) {
-                    return new int[]{key, value};
+            for (int j : input) {
+                if(map.containsKey(target-j)) {
+                    return new int[]{map.get(target-j), target-map.get(target-j)};
                 }
             }
         }
-        return null;
+        return new int[]{};
     }
 }
