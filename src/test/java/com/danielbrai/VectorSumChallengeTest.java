@@ -13,18 +13,18 @@ public class VectorSumChallengeTest {
 
     static Stream<Arguments> shouldReturnEmptyArrayIfTheInputHasLessThanTwoElement() {
         return Stream.of(
-                Arguments.of((Object) new int[]{1}),
-                Arguments.of((Object) new int[]{}),
-                null
+                Arguments.of(new int[]{1}, 0),
+                Arguments.of(new int[]{}, 0),
+                Arguments.of(null, 0)
         );
     }
 
     @ParameterizedTest
     @MethodSource
-    public void shouldReturnEmptyArrayIfTheInputHasLessThanTwoElement(int[] input) {
+    public void shouldReturnEmptyArrayIfTheInputHasLessThanTwoElement(int[] input, int expectedSize) {
         VectorSumChallenge vectorSumChallenge = new VectorSumChallenge();
         int[] output = vectorSumChallenge.executeAlgorithm(input, 0);
-        Assertions.assertEquals(0, output.length);
+        Assertions.assertEquals(expectedSize, output.length);
     }
 
     @Test
