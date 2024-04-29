@@ -13,8 +13,8 @@ public class VectorSumChallengeTest {
 
     static Stream<Arguments> shouldReturnEmptyArrayIfTheInputHasLessThanTwoElement(){
         return Stream.of(
-                Arguments.of(new int[]{1}),
-                Arguments.of(new int[]{}),
+                Arguments.of((Object) new int[]{1}),
+                Arguments.of((Object) new int[]{}),
                 null
         );
     }
@@ -45,5 +45,13 @@ public class VectorSumChallengeTest {
         Assertions.assertEquals(2, output[1]);
     }
 
-
+    @Test
+    public void shouldReturnTheInputArrayIfTheInputArrayIsNotOrderedAndHasExactlyTwoElementsAndItsSumResultsInTargetNumberA() {
+        VectorSumChallenge vectorSumChallenge = new VectorSumChallenge();
+        int[] input = new int[] {1,3,5,2,4};
+        int[] output = vectorSumChallenge.executeAlgorithm(input, 3);
+        Assertions.assertEquals(2, output.length);
+        Assertions.assertEquals(1, output[0]);
+        Assertions.assertEquals(2, output[1]);
+    }
 }
