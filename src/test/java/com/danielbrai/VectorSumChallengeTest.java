@@ -35,5 +35,15 @@ public class VectorSumChallengeTest {
         Assertions.assertEquals(0, output.length);
     }
 
+    @Test
+    public void shouldReturnTheInputArrayIfTheInputHasExactlyTwoElementsAndItsSumResultsInTargetNumber() {
+        VectorSumChallenge vectorSumChallenge = new VectorSumChallenge();
+        int[] input = new int[] {1,2};
+        int[] output = vectorSumChallenge.executeAlgorithm(input, 3);
+        Assertions.assertEquals(2, output.length);
+        Assertions.assertEquals(1, output[0]);
+        Assertions.assertEquals(2, output[1]);
+    }
+
 
 }
